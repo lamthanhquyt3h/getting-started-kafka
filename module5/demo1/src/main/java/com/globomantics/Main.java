@@ -1,5 +1,7 @@
 package com.globomantics;
 
+import java.util.Properties;
+
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -8,8 +10,6 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Properties;
-
 public class Main {
 	private static final Logger log = LoggerFactory.getLogger(Main.class);
 	private static final String TOPIC = "myorders";
@@ -17,7 +17,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 
 		Properties props = new Properties();
-		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "http://localhost:9092,http://localhost:9093,http://localhost:9094");
+		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "http://172.19.100.188:9092,http://172.19.100.188:9093,http://172.19.100.188:9094");
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, DoubleSerializer.class.getName());
 		KafkaProducer<String, Double> producer = new KafkaProducer<>(props);

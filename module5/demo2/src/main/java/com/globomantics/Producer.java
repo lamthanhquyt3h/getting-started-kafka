@@ -17,7 +17,7 @@ public class Producer {
 	public static void main(String[] args) throws InterruptedException {
 
 		Properties props = new Properties();
-		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "http://localhost:9092,http://localhost:9093,http://localhost:9094");
+		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "http://172.19.100.188:9092,http://172.19.100.188:9093,http://172.19.100.188:9094");
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, DoubleSerializer.class.getName());
 		KafkaProducer<String, Double> producer = new KafkaProducer<>(props);
